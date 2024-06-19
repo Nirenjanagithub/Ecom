@@ -24,12 +24,19 @@ function displayCart(characters){
         character.products.forEach(product=>{
             productItems+=`PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
         });
+        const customDateFormatter = new Intl.DateTimeFormat("en-US", {
+           dateStyle:"full",
+           timestyle:"full"
+          });
+          const now = new Date(character.date);
+          const formattedDate = customDateFormatter.format(now);
+
 
     
         row.innerHTML=`
             <td class="cart"><h4>${character.id}</h4></td>
             <td class="cart"><h4><a href="ecomsinglecart.html" onclick="show()" target="_blank">${character.userId}</a></h4></td>
-            <td class="cart"><h4>${character.date}</h4></td>
+            <td class="cart"><h4>${formattedDate}</h4></td>
             <td class="cart"><h4>${productItems}</h4></td>
             `;
            cartBody.appendChild(row)

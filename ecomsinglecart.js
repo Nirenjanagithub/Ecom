@@ -35,7 +35,7 @@ function show(character){
     
 }
 // cart update
-document.getElementById('updatecartButton').addEventListener('click',()=>{
+document.getElementById('updateButton').addEventListener('click',()=>{
     fetch('https://fakestoreapi.com/carts/7',{
         method:"PUT",
         headers:{
@@ -63,41 +63,41 @@ document.getElementById('updatecartButton').addEventListener('click',()=>{
             }
         )
     })
-    .then(response=>{
-        if(!response.ok){
-            throw new Error("problem converting to json");
+.then(response=>{
+    if(!response.ok){
+        throw new Error("problem converting to json");
+
+    }
+    return response.json();
+})
     
-        }
-        return response.json();
-    })
-        
-       
-    .then(data=>{
-        update(data)
-    })
-    .catch(error=> console.error("Error fetching data",error));
+    
+.then(data=>{
+    update(data)
+})
+.catch(error=> console.error("Error fetching data",error));
 
 
      
-    function update(character){
-       const cartContainerel = document.getElementById('cartContainer')
+function update(character){
+    const cartContainerel = document.getElementById('cartContainer')
+
+        let productItems = '';
+    character.products.forEach(product=>{
+        productItems+=`PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
+    });
+    cartContainerel.innerHTML=`
+    <h2> ID NUMBER</h2>
+    <td><h3>${character.id}</a></h3></td>
+    <h2>USER ID</h2>
+    <td><h3>${character.userId}</h3></td>
+    <h2> DATE </h2>
+    <td><h3>${character.date}</h3></td>
+    <h2>PRODUCTS</H2>
+    <td><h3> ${productItems}</h3><br></td>
+    <button class="cartButton"> BUY NOW </button>`;
     
-         let productItems = '';
-        character.products.forEach(product=>{
-            productItems+=`PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
-        });
-        cartContainerel.innerHTML=`
-        <h2> ID NUMBER</h2>
-        <td><h3>${character.id}</a></h3></td>
-        <h2>USER ID</h2>
-        <td><h3>${character.userId}</h3></td>
-        <h2> DATE </h2>
-        <td><h3>${character.date}</h3></td>
-        <h2>PRODUCTS</H2>
-        <td><h3> ${productItems}</h3><br></td>
-        <button class="cartButton"> BUY NOW </button>`;
-        
-        
+    
     }
 
 

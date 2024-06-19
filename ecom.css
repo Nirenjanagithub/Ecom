@@ -424,6 +424,11 @@ span{
     font-size: 70px;
     
 }
+.grey{
+
+    color: rgb(126, 125, 124);
+    font-size: 70px;
+}
 .rating{
     display: flex;
     flex-direction: row;
@@ -457,8 +462,7 @@ span{
     
 }
 /* Single cart */
-#cartContainer{
-    border: 1px solid;
+.maincartContainer{
     width: 30%;
     height: 400px;
     display: flex;
@@ -468,10 +472,16 @@ span{
     border-radius: 17px;
     row-gap: 5px;
     box-shadow:0 0 10px 1px #59443d;
-    padding: 30px;
-    margin-left: 390px;
-    margin-top: 50px;
-
+    justify-self: center;
+}
+#cartContainer{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    
     
    
 
@@ -479,8 +489,11 @@ span{
 }
 .cartBg {
     height: 617px;
-background-color: #ecdfd9;
-display: flex;
+    background-color: #ecdfd9;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 
 
 }
@@ -489,6 +502,7 @@ h2{
     border: 1px solid #846358c0;
     row-gap: 10px;
     color: #59443d;
+    background-color: #c8aca1;
 }
 h3{
     text-align: center;
@@ -505,6 +519,19 @@ h3{
     margin: auto;
     width: 30%;
     padding: 10px;
+
+}
+/* update */
+.updateCartdiv{
+      display: flex;
+    flex-direction: row;
+
+}
+.updatecartButon{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: row;
 
 }
 /* categories */
@@ -584,20 +611,5 @@ h3{
 
     
 
- #updatecartButton{
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    left: 580px;
-    top: 500px; 
-
-} 
-#deletecartButton{
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    left: 620px;
-    top: 500px; 
-
-} 
+ 
 

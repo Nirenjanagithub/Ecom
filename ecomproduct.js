@@ -38,20 +38,20 @@ function ratingstar(rating){
 
     }
     else if (rating<=4 && rating>3){
-        star = "****"
+        star = `****<span class="grey">*</span>`
         
 
     }
     else if (rating<=3 && rating>2){
-        star = "***"
+        star = `***<span class="grey">**</span>`
 
     }
     else if (rating<=2 && rating>1){
-        star = "**"
+        star = `**<span class="grey">***</span>`
 
     }
     else if (rating<=1){
-        star = "*"
+        star = `*<span class="grey">****</span>`
 
     }
     else{
