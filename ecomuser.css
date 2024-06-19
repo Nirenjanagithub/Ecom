@@ -81,10 +81,10 @@ td{
     
 }
 /* simgle user */
-#userContainer{
+.mainContainer{
     border: 1px solid;
     width: 30%;
-    height: 400px;
+    height: 70%;
     display: flex;
     flex-direction: column;
     border: 1px solid #846358;
@@ -93,17 +93,25 @@ td{
     row-gap: 5px;
     box-shadow:0 0 10px 1px #59443d;
     padding: 30px;
-    margin-left: 390px;
-    margin-top: 50px
+
+}
+#userContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   row-gap: 10px;
  
     
    
 
 
 }
-.userBg {height: 617px;
+.userBg {
+height: 690px;
 background-color: #ecdfd9;
 display: flex;
+justify-content: center;
+align-items: center;
 
 
 }
@@ -125,9 +133,14 @@ h3{
     color: #59443d;
     font-weight: bold;
     cursor: pointer;
-    margin: auto;
-    width: 30%; 
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 50%;
+    align-self: center;
+   
 }
 /* LIMIT */
 .searchInput{
@@ -174,9 +187,10 @@ button{
 #updateuserButton{
     background-color: transparent;
     border: none;
-    position: absolute;
-    left: 580px;
-    top: 500px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center; 
 
 } 
 

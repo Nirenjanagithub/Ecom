@@ -371,13 +371,15 @@ a{
 }
 .navlogo{
     background-color: #c8aca1;
-    height: 30px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     margin-bottom: 10px;
     border-radius: 15px;
     border: #71574e 2px solid;
+    padding-left: 20px;
 
 }
 #descriptionContainer{
