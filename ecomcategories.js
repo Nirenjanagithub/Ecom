@@ -38,7 +38,7 @@ document.getElementById('categorybody').addEventListener('click',()=>{
     .catch(error=> console.error("Error fetching data",error));
 })
 function displayProducts(characters){
-    const tableBody = document.getElementById('body');
+    const tableBody = document.getElementById('catbody');
 
     characters.forEach(character=>{
         const row =document.createElement('tr');

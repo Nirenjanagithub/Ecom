@@ -9,7 +9,17 @@ body{
 button{
     cursor: pointer;
 }
+/* error */
+#error{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 30%;
+    overflow: hidden;
+    color: red;
+    font-size: medium;
 
+}
 .loginBackground{
     background-color: #eaddd7;
     width: 100%;
@@ -106,7 +116,7 @@ input{
     border: #846358 2px solid;
     height: 20px;
 }
-.loginButton{
+#loginButton{
     background-color: #eaddd7;
     border-radius: 7px;
     border: #846358 2px solid;
@@ -116,7 +126,7 @@ input{
     color: #59443d;
 
 }
-.signuoButton {
+.signupButton {
     background-color: #eaddd7;
     border-radius: 7px;
     border: #846358 2px solid;
@@ -498,19 +508,57 @@ h3{
 
 }
 /* categories */
+.catcontainer{
+    display: flex;
+    flex-direction: row;
+}
+.cattable{
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-top: 30px;
+   
 
+}
+#catbody{
+    display: grid;
+    grid-template-columns: 10fr 10fr  ;
+    grid-template-rows:  5fr 5fr 5fr 5fr 5fr 5fr;
+    width: 100%;
+
+
+    
+
+   
+}
+.catheading{
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ background-color:#f8f1ee ;
+}
+.categories{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 691px;
+    background-color: #c8aca189;
+    border: 2px solid #59443d;
+}
 
 #categorybody{
     display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-    column-gap: 10px;
+    flex-direction: column;
+    padding-top: 55px;
     padding-left: 40px;
-    flex-direction: row;
+    width: 100%;
+    row-gap: 50px;
+
+    
 }
 #catbutton{
     background-color: #f8f1ee;
-    width: 100%;
+    width: 60%;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #59443d;

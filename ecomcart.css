@@ -91,7 +91,7 @@ td{
 }
 #limitResults{
     background-color: #f8f1ee;
-    width: 20%;
+    width: 10%;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 10px;
@@ -110,6 +110,24 @@ td{
 
 
 
+}
+#dateRange{
+    background-color: #f8f1ee;
+    width: 10%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    border: 1px solid #59443d;
+
+}
+#getUser{
+    background-color: #f8f1ee;
+    width: 10%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    border: 1px solid #59443d;
+    
 }
 a{
     text-decoration: none;
