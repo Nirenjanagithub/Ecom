@@ -120,5 +120,40 @@ function show(character){
 
 })
 // delete
+document.getElementById('deleteButton').addEventListener('click',()=>{
+    fetch('https://fakestoreapi.com/products/6',{
+        method:"DELETE",
+        headers:{
+            "content-type":"application/json"
+        },
+    })
+    .then(response=>{
+        if(!response.ok){
+            throw new Error("problem converting to json");
+    
+        }
+        return response.json();
+    })
+        
+       
+    .then(data=>{
+        show(data)
+    })
+    .catch(error=> console.error("Error fetching data",error));
+function show(character){
+    const productContainerel = document.getElementById('productContainer')
+     productContainerel.innerHTML=`<td><img id="product1img" src="${character.image}" alt="${character.title}" width="60%" ></td>
+     <td><h4>${character.title}</a></h4></td>
+     <td><h3>COST:$${character.price}</h3></td>`;
+ 
+     const descriptionContainerel =document.getElementById('descriptionContainer')
+     descriptionContainerel.innerHTML=`    <td><h4>${character.description}</h4></td>
+     `;
+ 
+ }
+ 
+
+})
+
 
 
