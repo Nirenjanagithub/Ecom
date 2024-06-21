@@ -3,20 +3,15 @@ fetch(apiUrl)
 .then(response=> {
     if(!response.ok) {
         throw new Error("problem converting to json");
-
     }
     return response.json();
 })
-    
-   
 .then(data=> {
     show(data);
 })
 .catch(error=> console.error("Error fetching data",error));
- 
 function show(character) {
-   const cartContainerel = document.getElementById('cartContainer')
-
+    const cartContainerel = document.getElementById('cartContainer')
     let productItems = '';
     character.products.forEach(product=> {
         productItems += `PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
@@ -31,8 +26,6 @@ function show(character) {
     <h2>PRODUCTS</H2>
     <td><h3> ${productItems}</h3><br></td>
     <button class = "cartButton"> BUY NOW </button>`;
-    
-    
 }
 // cart update
 document.getElementById('updateButton').addEventListener('click', ()=> {
@@ -49,7 +42,6 @@ document.getElementById('updateButton').addEventListener('click', ()=> {
             }
         )
     })
-
     fetch('https://fakestoreapi.com/carts/7', {
         method:"PATCH",
         headers:{
@@ -66,17 +58,13 @@ document.getElementById('updateButton').addEventListener('click', ()=> {
     .then(response=> {
         if(!response.ok) {
             throw new Error("problem converting to json");
-
-        }
+         }
         return response.json();
     })
-        
-        
     .then(data=> {
         update(data);
     })
     .catch(error=> console.error("Error fetching data",error));
-
     function update(character) {
         const cartContainerel = document.getElementById('cartContainer');
         let productItems = '';
@@ -94,10 +82,8 @@ document.getElementById('updateButton').addEventListener('click', ()=> {
             <td><h3> ${productItems}</h3><br></td>
             <button class="cartButton"> BUY NOW </button>`;
         }
-
-
-       
 })
+
 // delete
 document.getElementById('deletecartButton').addEventListener('click', ()=> {
     fetch('https://fakestoreapi.com/carts/6', {
@@ -109,12 +95,9 @@ document.getElementById('deletecartButton').addEventListener('click', ()=> {
     .then(response=> {
         if(!response.ok) {
             throw new Error("problem converting to json");
-    
         }
         return response.json();
     })
-        
-       
     .then(data=> {
         update(data);
     })

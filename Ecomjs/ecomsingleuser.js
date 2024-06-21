@@ -11,7 +11,6 @@ fetch(apiUrl)
     show(data);
 })
 .catch(error=> console.error("Error fetching data",error));
- 
 function show(character) {
     const userContainerel = document.getElementById('userContainer')
     userContainerel.innerHTML = `
@@ -33,7 +32,6 @@ function show(character) {
 }
 // update
 document.getElementById('updateuserButton').addEventListener('click',()=> {
-
     fetch('https://fakestoreapi.com/users/7', {
         method:"PUT",
         headers: {
@@ -93,20 +91,15 @@ document.getElementById('updateuserButton').addEventListener('click',()=> {
     .then(response=> {
         if(!response.ok) {
             throw new Error("problem converting to json");
-    
         }
         return response.json();
     })
-            
-        
     .then(data=> {
         show(data)
     })
     .catch(error=> console.error("Error fetching data",error));
-    
     function show(character) {
         const userContainerel = document.getElementById('userContainer')
-    
         userContainerel.innerHTML = `
             <h2> ID NUMBER</h2>
             <td><h3>${character.id}</a></h3></td>
@@ -136,12 +129,9 @@ document.getElementById('deleteuserButton').addEventListener('click', ()=> {
     .then(response=> {
         if(!response.ok) {
             throw new Error("problem converting to json");
-    
         }
         return response.json();
     })
-        
-       
     .then(data=> {
         show(data)
     })
@@ -158,9 +148,12 @@ document.getElementById('deleteuserButton').addEventListener('click', ()=> {
             <h2>NAME</H2>
             <td><h3> ${character.name.firstname} ${character.name.lastname}</h3></td>
             <h2>ADDRESS</h2>
-            <td><h3>${character.address.city} ${character.address.street} ${character.address.number} ${character.address.city} ${character.address.geolocation.long} ${character.address.geolocation.lat}  </h3></td>
+            <td><h3>${character.address.city} ${character.address.street} 
+            ${character.address.number} ${character.address.city}
+            ${character.address.geolocation.long} ${character.address.geolocation.lat}  </h3></td>
             <h2>PHONE NUMBER</h2>
             <td><h3>${character.phone}</h3></td>
-            <button class = "userButton"> BUY NOW </button>`;
+            <button class = "userButton"> BUY NOW </button>
+        `;
     }
 })

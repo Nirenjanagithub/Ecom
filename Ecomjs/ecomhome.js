@@ -3,20 +3,15 @@ fetch(apiUrl1)
 .then(response=> {
     if(!response.ok) {
         throw new Error("problem converting to json");
-
     }
     return response.json();
 })
-    
-   
 .then(data=> {
     displayProducts(data);
 })
 .catch(error=> console.error("Error fetching data",error));
- 
 function displayProducts(characters) {
     const tableBody = document.getElementById('body');
-
     characters.forEach(character=> {
         const row = document.createElement('tr');
         row.innerHTM = `
@@ -30,7 +25,7 @@ function displayProducts(characters) {
     })
 }
 // add new product
-document.getElementById('add').addEventListener('click', ()=> {
+document.getElementById('add').addEventListener('click', () => {
 fetch('https://fakestoreapi.com/products', {
     method:"POST",
     headers: {
@@ -49,18 +44,14 @@ fetch('https://fakestoreapi.com/products', {
 .then(response=> {
     if(!response.ok) {
         throw new Error("problem converting to json");
-
     }
     return response.json();
 })
-    
-    
 .then(data=> {
     addNewProduct(data);
 })
 .catch(error=> console.error("Error fetching data",error));
 })
-
 function addNewProduct(newProduct) {
     const tableBody = document.getElementById('body');
     const row = document.createElement('tr');
@@ -73,17 +64,14 @@ function addNewProduct(newProduct) {
     tableBody.appendChild(row);
 }
 // LIMIT RESULT
-document.getElementById('limitResults').addEventListener('click',() => {
+document.getElementById('limitResults').addEventListener('click', () => {
     const apiUrl5 = "https://fakestoreapi.com/products?limit=5"
     fetch(apiUrl5)
     .then(response=> {
         if(!response.ok) {
             throw new Error("problem converting to json");
-    
-    
         }
         return response.json();
-    
     })
     .then(data=> {
         limitProduct(data);
@@ -101,23 +89,17 @@ function limitProduct(limits) {
             <td><h4>COST:$${limit.price}</h4></td>
         `;
         limitBody.appendChild(row);
-    
-    
     })
-        
 }
 //  SORT RESULT
-document.getElementById('sortResults').addEventListener('click',() => {
+document.getElementById('sortResults').addEventListener('click', () => {
     const apiUrl6 = "https://fakestoreapi.com/products?sort=desc"
     fetch(apiUrl6)
     .then(response=> {
         if(!response.ok) {
             throw new Error("problem converting to json");
-
-
         }
         return response.json();
-
     })
     .then(data=> {
         sortProduct(data);
@@ -137,5 +119,4 @@ function sortProduct(products) {
             `;
         tableBody.appendChild(row);
     })
-    
 }

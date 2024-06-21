@@ -3,18 +3,13 @@ fetch(apiUrl4)
 .then(response=> {
     if(!response.ok) {
         throw new Error("problem converting to json");
-
     }
     return response.json();
 })
-    
-   
 .then(data=> {
     displayUser(data);
 })
 .catch(error=> console.error("Error fetching data",error));
-
- 
 function displayUser(userdetails) {
     const userBody = document.getElementById('userBody');
      userdetails.forEach(userdeet=> {
@@ -73,7 +68,6 @@ document.getElementById('add').addEventListener('click', ()=> {
     })
     .catch(error=> console.error("Error fetching data",error));
 })
-
 function showuser(characters) {
     const userBody = document.getElementById('userBody');
     const row = document.createElement('tr');
@@ -88,14 +82,13 @@ function showuser(characters) {
         ${characters.address.geolocation.lat}  </h4></td>
         <td class = "cart"><h4>${characters.phone}</h4></td>`;
     userBody.appendChild(row)
-                
 }
 // LIMIT
-document.getElementById('limitResults').addEventListener('click',()=> {
+document.getElementById('limitResults').addEventListener('click',() => {
     const apiUrl11 = "https://fakestoreapi.com/users?limit=5";
     fetch(apiUrl11)
     .then(response=> {
-        if(!response.ok ){
+        if(!response.ok ) {
             throw new Error("problem converting to json");
         }
         return response.json();
@@ -120,9 +113,7 @@ function displayUser(userdetails) {
             ${userdeet.address.zipcode} ${userdeet.address.geolocation.long} ${userdeet.address.geolocation.lat}  </h4></td>
             <td class = "cart"><h4>${userdeet.phone}</h4></td>`;
         userBody.appendChild(row);
-          
     })
-      
 }
     
 
@@ -136,7 +127,6 @@ document.getElementById('sortResults').addEventListener('click', ()=> {
         }
         return response.json();
     })
-        
     .then(data=> {
         displayUser(data);
     })

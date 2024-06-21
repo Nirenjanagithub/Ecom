@@ -10,7 +10,6 @@ fetch(apiUrl7)
     displayCategories(data);
 })
 .catch(error=> console.error("Error fetching data",error));
-
 function displayCategories(items) {
     const categoryBody = document.getElementById('categorybody');
     items.forEach(item=> {
@@ -19,7 +18,6 @@ function displayCategories(items) {
             <button id = "catbutton">${item}</button>`;
         categoryBody.appendChild(elements);
     })
-    
 }
 document.getElementById('categorybody').addEventListener('click', () => {
     const apiUrl8 = 'https://fakestoreapi.com/products/category/jewelery';
