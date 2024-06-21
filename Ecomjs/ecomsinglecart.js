@@ -1,7 +1,7 @@
 const apiUrl = ('https://fakestoreapi.com/carts/5')
 fetch(apiUrl)
-.then(response=>{
-    if(!response.ok){
+.then(response=> {
+    if(!response.ok) {
         throw new Error("problem converting to json");
 
     }
@@ -9,19 +9,19 @@ fetch(apiUrl)
 })
     
    
-.then(data=>{
-    show(data)
+.then(data=> {
+    show(data);
 })
 .catch(error=> console.error("Error fetching data",error));
  
-function show(character){
+function show(character) {
    const cartContainerel = document.getElementById('cartContainer')
 
-     let productItems = '';
-    character.products.forEach(product=>{
-        productItems+=`PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
+    let productItems = '';
+    character.products.forEach(product=> {
+        productItems += `PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
     });
-    cartContainerel.innerHTML=`
+    cartContainerel.innerHTML = `
     <h2> ID NUMBER</h2>
     <td><h3>${character.id}</a></h3></td>
     <h2>USER ID</h2>
@@ -30,13 +30,13 @@ function show(character){
     <td><h3>${character.date}</h3></td>
     <h2>PRODUCTS</H2>
     <td><h3> ${productItems}</h3><br></td>
-    <button class="cartButton"> BUY NOW </button>`;
+    <button class = "cartButton"> BUY NOW </button>`;
     
     
 }
 // cart update
-document.getElementById('updateButton').addEventListener('click',()=>{
-    fetch('https://fakestoreapi.com/carts/7',{
+document.getElementById('updateButton').addEventListener('click', ()=> {
+    fetch('https://fakestoreapi.com/carts/7', {
         method:"PUT",
         headers:{
             "content-type":"application/json"
@@ -50,7 +50,7 @@ document.getElementById('updateButton').addEventListener('click',()=>{
         )
     })
 
-    fetch('https://fakestoreapi.com/carts/7',{
+    fetch('https://fakestoreapi.com/carts/7', {
         method:"PATCH",
         headers:{
             "content-type":"application/json"
@@ -63,56 +63,51 @@ document.getElementById('updateButton').addEventListener('click',()=>{
             }
         )
     })
-.then(response=>{
-    if(!response.ok){
-        throw new Error("problem converting to json");
+    .then(response=> {
+        if(!response.ok) {
+            throw new Error("problem converting to json");
 
-    }
-    return response.json();
-})
-    
-    
-.then(data=>{
-    update(data)
-})
-.catch(error=> console.error("Error fetching data",error));
+        }
+        return response.json();
+    })
+        
+        
+    .then(data=> {
+        update(data);
+    })
+    .catch(error=> console.error("Error fetching data",error));
 
-
-     
-function update(character){
-    const cartContainerel = document.getElementById('cartContainer')
-
+    function update(character) {
+        const cartContainerel = document.getElementById('cartContainer');
         let productItems = '';
-    character.products.forEach(product=>{
-        productItems+=`PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
-    });
-    cartContainerel.innerHTML=`
-    <h2> ID NUMBER</h2>
-    <td><h3>${character.id}</a></h3></td>
-    <h2>USER ID</h2>
-    <td><h3>${character.userId}</h3></td>
-    <h2> DATE </h2>
-    <td><h3>${character.date}</h3></td>
-    <h2>PRODUCTS</H2>
-    <td><h3> ${productItems}</h3><br></td>
-    <button class="cartButton"> BUY NOW </button>`;
-    
-    
-    }
+        character.products.forEach(product=> {
+            productItems += `PRODUCT ID :${product.productId}, QUANTITY: ${product.quantity}<br>`;
+        })
+        cartContainerel.innerHTML = `
+            <h2> ID NUMBER</h2>
+            <td><h3>${character.id}</a></h3></td>
+            <h2>USER ID</h2>
+            <td><h3>${character.userId}</h3></td>
+            <h2> DATE </h2>
+            <td><h3>${character.date}</h3></td>
+            <h2>PRODUCTS</H2>
+            <td><h3> ${productItems}</h3><br></td>
+            <button class="cartButton"> BUY NOW </button>`;
+        }
 
 
        
 })
 // delete
-document.getElementById('deletecartButton').addEventListener('click',()=>{
-    fetch('https://fakestoreapi.com/carts/6',{
+document.getElementById('deletecartButton').addEventListener('click', ()=> {
+    fetch('https://fakestoreapi.com/carts/6', {
         method:"DELETE",
-        headers:{
+        headers: {
             "content-type":"application/json"
         },
     })
-    .then(response=>{
-        if(!response.ok){
+    .then(response=> {
+        if(!response.ok) {
             throw new Error("problem converting to json");
     
         }
@@ -120,30 +115,25 @@ document.getElementById('deletecartButton').addEventListener('click',()=>{
     })
         
        
-    .then(data=>{
-        update(data)
+    .then(data=> {
+        update(data);
     })
     .catch(error=> console.error("Error fetching data",error));
-    function update(character){
+    function update(character) {
         const cartContainerel = document.getElementById('cartContainer')
-     
-          let productItems = '';
-         character.products.forEach(product=>{
-             productItems+=`PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
-         });
-         cartContainerel.innerHTML=`
-         <h2> ID NUMBER</h2>
-         <td><h3>${character.id}</a></h3></td>
-         <h2>USER ID</h2>
-         <td><h3>${character.userId}</h3></td>
-         <h2> DATE </h2>
-         <td><h3>${character.date}</h3></td>
-         <h2>PRODUCTS</H2>
-         <td><h3> ${productItems}</h3><br></td>
-         <button class="cartButton"> BUY NOW </button>`;
-         
-         
-     }
-
-
+        let productItems = '';
+        character.products.forEach(product=> {
+             productItems += `PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
+        })
+        cartContainerel.innerHTML = `
+            <h2> ID NUMBER</h2>
+            <td><h3>${character.id}</a></h3></td>
+            <h2>USER ID</h2>
+            <td><h3>${character.userId}</h3></td>
+            <h2> DATE </h2>
+            <td><h3>${character.date}</h3></td>
+            <h2>PRODUCTS</H2>
+            <td><h3> ${productItems}</h3><br></td>
+            <button class = "cartButton"> BUY NOW </button>`;
+        }
 })

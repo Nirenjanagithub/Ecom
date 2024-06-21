@@ -1,7 +1,7 @@
-document.getElementById('loginButton').addEventListener('click',()=>{
+document.getElementById('loginButton').addEventListener('click', ()=> {
     fetch('https://fakestoreapi.com/auth/login',{
         method:'POST',
-        headers:{
+        headers: {
             "content-type":"application/json"
         },
         body:JSON.stringify({
@@ -9,7 +9,7 @@ document.getElementById('loginButton').addEventListener('click',()=>{
             password: "83r5^_"
         })
     })
-    .then(response=>{
+    .then(response=> {
         if(!response.ok){
             throw new Error("problem converting to json");
     
@@ -19,14 +19,14 @@ document.getElementById('loginButton').addEventListener('click',()=>{
         
        
     .then(data=>{
-        displayError(data)
+        displayError(data);
     })
     .catch(error=> console.error("Error fetching data",error));
    
-    function displayError(character){
-        const error = document.getElementById('error')
-        error.innerHTML=character.token;
-        error.appendChild(text)
+    function displayError(character) {
+        const error = document.getElementById('error');
+        error.innerHTML = character.token;
+        error.appendChild(text);
 
 
     }

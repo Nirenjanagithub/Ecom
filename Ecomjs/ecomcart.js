@@ -245,8 +245,6 @@ function displayCart(characters) {
             productItems += `PRODUCT ID :${product.productId}, 
             QUANTITY: ${product.quantity}<br>`;
         })
-
-    
         row.innerHTML = `
         
             <td class = "cart"><h4>${character.id}</h4></td>
@@ -258,7 +256,7 @@ function displayCart(characters) {
             
     })
         
-}
+};
 
 
 
