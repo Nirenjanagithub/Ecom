@@ -10,25 +10,25 @@ fetch(apiUrl4)
     displayUser(data);
 })
 .catch(error=> console.error("Error fetching data",error));
-function displayUser(userdetails) {
+function displayUser(userDetails) {
     const userBody = document.getElementById('userBody');
-     userdetails.forEach(userdeet=> {
+     userDetails.forEach(user=> {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td class = "cart"><a href="ecomsingleuser.html" target="_blank" ><h4>${userdeet.id}</a></h4></td>
-            <td class = "cart"><h4>${userdeet.email}</h4></td>
-            <td class = "cart"><h4>${userdeet.username}</h4></td>
-            <td class = "cart"><h4>${userdeet.password}</h4></td>
-            <td class = "cart"><h4>${userdeet.name.firstname} ${userdeet.name.lastname}</h4></td>
-            <td class = "cart"><h4>${userdeet.address.city} ${userdeet.address.street}
-            ${userdeet.address.number} ${userdeet.address.zipcode} ${userdeet.address.geolocation.long} 
-            ${userdeet.address.geolocation.lat}  </h4></td>
-            <td class = "cart"><h4>${userdeet.phone}</h4></td>
+            <td class = "cart"><a href="ecomsingleuser.html" target="_blank" ><h4>${user.id}</a></h4></td>
+            <td class = "cart"><h4>${user.email}</h4></td>
+            <td class = "cart"><h4>${user.username}</h4></td>
+            <td class = "cart"><h4>${user.password}</h4></td>
+            <td class = "cart"><h4>${user.name.firstname} ${user.name.lastname}</h4></td>
+            <td class = "cart"><h4>${user.address.city} ${user.address.street}
+            ${user.address.number} ${user.address.zipcode} ${user.address.geolocation.long} 
+            ${user.address.geolocation.lat}  </h4></td>
+            <td class = "cart"><h4>${user.phone}</h4></td>
             `;
            userBody.appendChild(row);
     })   
 }
-// add new Cart product
+// ADD NEW USER
 document.getElementById('add').addEventListener('click', ()=> {
     fetch('https://fakestoreapi.com/users', {
         method:"POST",
@@ -64,11 +64,11 @@ document.getElementById('add').addEventListener('click', ()=> {
         return response.json();
     })
     .then(data=> {
-        showuser(data);
+        addUser(data);
     })
     .catch(error=> console.error("Error fetching data",error));
 })
-function showuser(characters) {
+function addUser(characters) {
     const userBody = document.getElementById('userBody');
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -83,8 +83,8 @@ function showuser(characters) {
         <td class = "cart"><h4>${characters.phone}</h4></td>`;
     userBody.appendChild(row)
 }
-// LIMIT
-document.getElementById('limitResults').addEventListener('click',() => {
+// LIMIT USER
+document.getElementById('limitResults').addEventListener('click', () => {
     const apiUrl11 = "https://fakestoreapi.com/users?limit=5";
     fetch(apiUrl11)
     .then(response=> {
@@ -98,27 +98,27 @@ document.getElementById('limitResults').addEventListener('click',() => {
     })
     .catch(error=> console.error("Error fetching data",error));
 })
-function displayUser(userdetails) {
+function displayUser(userDetails) {
     const userBody = document.getElementById('userBody');
     userBody.innerHTML = '';
-    userdetails.forEach(userdeet=> {
+    userDetails.forEach(user=> {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td class = "cart"><a href = "ecomsingleuser.html" target = "_blank" ><h4>${userdeet.id}</a></h4></td>
-            <td class = "cart"><h4>${userdeet.email}</h4></td>
-            <td class = "cart"><h4>${userdeet.username}</h4></td>
-            <td class = "cart"><h4>${userdeet.password}</h4></td>
-            <td class = "cart"><h4>${userdeet.name.firstname} ${userdeet.name.lastname}</h4></td>
-            <td class = "cart"><h4>${userdeet.address.city} ${userdeet.address.street} ${userdeet.address.number} 
-            ${userdeet.address.zipcode} ${userdeet.address.geolocation.long} ${userdeet.address.geolocation.lat}  </h4></td>
-            <td class = "cart"><h4>${userdeet.phone}</h4></td>`;
+            <td class = "cart"><a href = "ecomsingleuser.html" target = "_blank" ><h4>${user.id}</a></h4></td>
+            <td class = "cart"><h4>${user.email}</h4></td>
+            <td class = "cart"><h4>${user.username}</h4></td>
+            <td class = "cart"><h4>${user.password}</h4></td>
+            <td class = "cart"><h4>${user.name.firstname} ${user.name.lastname}</h4></td>
+            <td class = "cart"><h4>${user.address.city} ${user.address.street} ${user.address.number} 
+            ${user.address.zipcode} ${user.address.geolocation.long} ${user.address.geolocation.lat}  </h4></td>
+            <td class = "cart"><h4>${user.phone}</h4></td>`;
         userBody.appendChild(row);
     })
 }
     
 
-// SORT 
-document.getElementById('sortResults').addEventListener('click', ()=> {
+// SORT USER
+document.getElementById('sortResults').addEventListener('click', () => {
     const apiUrl10 = "https://fakestoreapi.com/users?sort=desc";
     fetch(apiUrl10)
     .then(response=> {
@@ -135,18 +135,18 @@ document.getElementById('sortResults').addEventListener('click', ()=> {
 function displayUser(userDetails) {
     const userBody = document.getElementById('userBody');
     userBody.innerHTML = ''
-    userDetails.forEach(userdeet=> {
+    userDetails.forEach(user=> {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td class = "cart"><a href = "ecomsingleuser.html" target = "_blank" ><h4>${userdeet.id}</a></h4></td>
-            <td class = "cart"><h4>${userdeet.email}</h4></td>
-            <td class = "cart"><h4>${userdeet.username}</h4></td>
-            <td class = "cart"><h4>${userdeet.password}</h4></td>
-            <td class = "cart"><h4>${userdeet.name.firstname} ${userdeet.name.lastname}</h4></td>
-            <td class = "cart"><h4>${userdeet.address.city} ${userdeet.address.street}
-            ${userdeet.address.number} ${userdeet.address.zipcode} ${userdeet.address.geolocation.long}
-            ${userdeet.address.geolocation.lat}  </h4></td>
-            <td class = "cart"><h4>${userdeet.phone}</h4></td>`;
+            <td class = "cart"><a href = "ecomsingleuser.html" target = "_blank" ><h4>${user.id}</a></h4></td>
+            <td class = "cart"><h4>${user.email}</h4></td>
+            <td class = "cart"><h4>${user.username}</h4></td>
+            <td class = "cart"><h4>${user.password}</h4></td>
+            <td class = "cart"><h4>${user.name.firstname} ${user.name.lastname}</h4></td>
+            <td class = "cart"><h4>${user.address.city} ${user.address.street}
+            ${user.address.number} ${user.address.zipcode} ${user.address.geolocation.long}
+            ${user.address.geolocation.lat}  </h4></td>
+            <td class = "cart"><h4>${user.phone}</h4></td>`;
         userBody.appendChild(row);
     })  
 }

@@ -14,7 +14,7 @@ function displayProducts(characters) {
     const tableBody = document.getElementById('body');
     characters.forEach(character=> {
         const row = document.createElement('tr');
-        row.innerHTM = `
+        row.innerHTML = `
             <td><img src = "${character.image}"alt = "${character.title}" 
             width = "30%"></td>
             <td><h4><a href = "ecomproduct.html" onclick = "show()" 

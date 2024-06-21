@@ -7,10 +7,10 @@ fetch(apiUrl)
     return response.json();
 })
 .then(data=> {
-    show(data);
+    displayCart(data);
 })
 .catch(error=> console.error("Error fetching data",error));
-function show(character) {
+function displayCart(character) {
     const cartContainerel = document.getElementById('cartContainer')
     let productItems = '';
     character.products.forEach(product=> {
@@ -27,8 +27,8 @@ function show(character) {
     <td><h3> ${productItems}</h3><br></td>
     <button class = "cartButton"> BUY NOW </button>`;
 }
-// cart update
-document.getElementById('updateButton').addEventListener('click', ()=> {
+// CART UPDATE
+document.getElementById('updateButton').addEventListener('click', () => {
     fetch('https://fakestoreapi.com/carts/7', {
         method:"PUT",
         headers:{
@@ -62,16 +62,16 @@ document.getElementById('updateButton').addEventListener('click', ()=> {
         return response.json();
     })
     .then(data=> {
-        update(data);
+        displayCart(data);
     })
     .catch(error=> console.error("Error fetching data",error));
-    function update(character) {
-        const cartContainerel = document.getElementById('cartContainer');
+    function displayCart(character) {
+        const cartContainerEl = document.getElementById('cartContainer');
         let productItems = '';
         character.products.forEach(product=> {
             productItems += `PRODUCT ID :${product.productId}, QUANTITY: ${product.quantity}<br>`;
         })
-        cartContainerel.innerHTML = `
+        cartContainerEl.innerHTML = `
             <h2> ID NUMBER</h2>
             <td><h3>${character.id}</a></h3></td>
             <h2>USER ID</h2>
@@ -84,8 +84,8 @@ document.getElementById('updateButton').addEventListener('click', ()=> {
         }
 })
 
-// delete
-document.getElementById('deletecartButton').addEventListener('click', ()=> {
+// DELETE CART
+document.getElementById('deletecartButton').addEventListener('click', () => {
     fetch('https://fakestoreapi.com/carts/6', {
         method:"DELETE",
         headers: {
@@ -99,16 +99,16 @@ document.getElementById('deletecartButton').addEventListener('click', ()=> {
         return response.json();
     })
     .then(data=> {
-        update(data);
+        displayCart(data);
     })
     .catch(error=> console.error("Error fetching data",error));
-    function update(character) {
-        const cartContainerel = document.getElementById('cartContainer')
+    function displayCart(character) {
+        const cartContainerEl = document.getElementById('cartContainer')
         let productItems = '';
         character.products.forEach(product=> {
              productItems += `PRODUCT ID :${product.productId} ,QUANTITY: ${product.quantity}<br>`;
         })
-        cartContainerel.innerHTML = `
+        cartContainerEl.innerHTML = `
             <h2> ID NUMBER</h2>
             <td><h3>${character.id}</a></h3></td>
             <h2>USER ID</h2>

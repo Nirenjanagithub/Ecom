@@ -8,12 +8,12 @@ fetch(apiUrl)
 })
     
 .then(data=> {
-    show(data);
+    displayUser(data);
 })
 .catch(error=> console.error("Error fetching data",error));
-function show(character) {
-    const userContainerel = document.getElementById('userContainer')
-    userContainerel.innerHTML = `
+function displayUser(character) {
+    const userContainerEl = document.getElementById('userContainer')
+    userContainerEl.innerHTML = `
         <h2> ID NUMBER</h2>
         <td><h3>${character.id}</a></h3></td>
         <h2>EMAIL</h2>
@@ -95,12 +95,12 @@ document.getElementById('updateuserButton').addEventListener('click',()=> {
         return response.json();
     })
     .then(data=> {
-        show(data)
+        displayUser(data)
     })
     .catch(error=> console.error("Error fetching data",error));
-    function show(character) {
-        const userContainerel = document.getElementById('userContainer')
-        userContainerel.innerHTML = `
+    function displayUser(character) {
+        const userContainerEl = document.getElementById('userContainer')
+        userContainerEl.innerHTML = `
             <h2> ID NUMBER</h2>
             <td><h3>${character.id}</a></h3></td>
             <h2>EMAIL</h2>
@@ -133,12 +133,12 @@ document.getElementById('deleteuserButton').addEventListener('click', ()=> {
         return response.json();
     })
     .then(data=> {
-        show(data)
+        displayUser(data)
     })
     .catch(error=> console.error("Error fetching data",error));
-    function show(character) {
-        const userContainerel = document.getElementById('userContainer')
-        userContainerel.innerHTML = `
+    function displayUser(character) {
+        const userContainerEl = document.getElementById('userContainer')
+        userContainerEl.innerHTML = `
             <h2> ID NUMBER</h2>
             <td><h3>${character.id}</a></h3></td>
             <h2>EMAIL</h2>

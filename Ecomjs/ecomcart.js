@@ -57,11 +57,11 @@ document.getElementById('add').addEventListener('click',()=> {
         return response.json();
     })
     .then(data=> {
-        show(data);
+        displayCart(data);
     })
     .catch(error=> console.error("Error fetching data",error));
 })
-function show(characters) {
+function displayCart(characters) {
     const cartBody = document.getElementById('cartBody');
     const row = document.createElement('tr');
     let productItems = '';

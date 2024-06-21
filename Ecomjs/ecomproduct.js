@@ -7,27 +7,27 @@ fetch(apiUrl)
     return response.json();
 })
 .then(data=> {
-    show(data);
+    dispatchProduct(data);
 })
 .catch(error=> console.error("Error fetching data",error));
  
-function show(character) {
-    const productContainerel = document.getElementById('productContainer')
-    productContainerel.innerHTML = `<td><img id = "product1img" src = "${character.image}" 
+function dispatchProduct(character) {
+    const productContainerEl = document.getElementById('productContainer')
+    productContainerEl.innerHTML = `<td><img id = "product1img" src = "${character.image}" 
     alt = "${character.title}" width = "60%" ></td>
     <td><h4>${character.title}</a></h4></td>
     <td><h3>COST:$${character.price}</h3></td>`;
-    const reviewContainerel = document.getElementById('reviewContainer');
-    reviewContainerel.innerHTML = `<td ><h3 class=rating>RATING:<span>
-    ${ratingstar(character.rating.rate)}</span>(${character.rating.rate})</h3></td>
+    const reviewContainerEl = document.getElementById('reviewContainer');
+    reviewContainerEl.innerHTML = `<td ><h3 class=rating>RATING:<span>
+    ${ratingStar(character.rating.rate)}</span>(${character.rating.rate})</h3></td>
     <td><h4>${character.rating.count} + People Bought in last one month</h4></td>
     `;
-    const descriptionContainerel = document.getElementById('descriptionContainer')
-    descriptionContainerel.innerHTML = `<td><h4>${character.description}</h4></td>
+    const descriptionContainerEl = document.getElementById('descriptionContainer')
+    descriptionContainerEl.innerHTML = `<td><h4>${character.description}</h4></td>
     `;
 }
 let star='';
-function ratingstar(rating) {
+function ratingStar(rating) {
     if (rating <= 5 && rating > 4) {
         star = "*****"
     }
@@ -87,21 +87,21 @@ document.getElementById('updateButton').addEventListener('click', () => {
         return response.json();
     })
     .then(data=> {
-        show(data);
+        dispatchProduct(data);
     })
     .catch(error=> console.error("Error fetching data",error));
-    function show(character) {
-        const productContainerel = document.getElementById('productContainer')
-        productContainerel.innerHTML = `<td><img id = "product1img" src = "${character.image}"
+    function dispatchProduct(character) {
+        const productContainerEl = document.getElementById('productContainer')
+        productContainerEl.innerHTML = `<td><img id = "product1img" src = "${character.image}"
         alt = "${character.title}" width = "60%" ></td>
         <td><h4>${character.title}</a></h4></td>
         <td><h3>COST:$${character.price}</h3></td>`;
-        const descriptionContainerel = document.getElementById('descriptionContainer')
-        descriptionContainerel.innerHTML = `<td><h4>${character.description}</h4></td>
+        const descriptionContainerEl = document.getElementById('descriptionContainer')
+        descriptionContainerEl.innerHTML = `<td><h4>${character.description}</h4></td>
         `;
     }
 })
-// delete
+// DELETE PRODUCT
 document.getElementById('deleteButton').addEventListener('click', () => {
     fetch('https://fakestoreapi.com/products/6', {
         method:"DELETE",
@@ -116,17 +116,17 @@ document.getElementById('deleteButton').addEventListener('click', () => {
         return response.json();
     })
     .then(data=> {
-        show(data);
+        dispatchProduct(data);
     })
     .catch(error => console.error("Error fetching data",error));
-    function show(character) {
-        const productContainerel = document.getElementById('productContainer')
-        productContainerel.innerHTML = `
+    function dispatchProduct(character) {
+        const productContainerEl = document.getElementById('productContainer')
+        productContainerEl.innerHTML = `
         <td><img id = "product1img" src = "${character.image}" alt = "${character.title}" width = "60%" ></td>
         <td><h4>${character.title}</a></h4></td>
         <td><h3>COST:$${character.price}</h3></td>`;
-        const descriptionContainerel = document.getElementById('descriptionContainer');
-        descriptionContainerel.innerHTML = `<td><h4>${character.description}</h4></td>
+        const descriptionContainerEl = document.getElementById('descriptionContainer');
+        descriptionContainerEl.innerHTML = `<td><h4>${character.description}</h4></td>
         `;
     }
 })
