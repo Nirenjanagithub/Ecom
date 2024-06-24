@@ -1,0 +1,9 @@
+
+function LoginPageText(){
+    return(
+        <div className="content-left">
+            <h1 className="Heading">Dazzle <span className="Heading-drobe">drobe</span></h1>
+            <p className="SubTitle">Lets dive into the World of FASHION Together</p>
+        </div>
+    )
+}
